@@ -1,0 +1,188 @@
+﻿@model menus_project.ViewModel.MenuViewModel
+
+@{
+	bool isRTL = CultureInfo.CurrentCulture.TextInfo.IsRightToLeft;
+
+}
+
+<div class="continer">
+	<div class="row mt-3 mb-5">
+			<div class="col ">
+				<div class="card no-hover ">
+
+					<div class="row">
+						<div class="col-3">
+							<img src="~/Images/@Model.Restaurant.Image_url"  height=125 class="rounded w-100" />
+						</div>
+						<div class="col">
+							<div class="ps-2 d-flex justify-content-between">
+								<h4 class="card-title">@(isRTL ? Model.Restaurant.NameInArabic : Model.Restaurant.Name)</h4>
+
+									<form asp-action="ChangeFavorite" method="post">
+									@Html.AntiForgeryToken()
+										<input type="hidden" name="id" value="@Model.Restaurant.Id" />
+
+										<button class="btn btn-link pe-3 border-0">
+											@if (Model.IsFavoriteRestaurant)
+											{
+																<i class="bi bi-heart-fill text-danger"></i>
+											}
+											else
+											{
+																		<i class="bi bi-heart text-danger"></i>
+											}
+										</button>
+									</form>
+							</div>
+							<div>
+								<div class="d-flex gap-1 ps-2"> 
+
+
+									@if (Model.Restaurant.AverageRating > 3)
+									{
+													<small class="text-warning"><i class="bi bi-star-fill"></i></small>
+									}
+									else if (Model.Restaurant.AverageRating > 1)
+									{
+															<small class="text-warning"><i class="bi bi-star-half"></i</small>
+									}
+									else
+									{
+																	<small class="text-warning"> <i class="bi bi-star"></i></small>
+									}
+									<small class="text-secondary"> @Model.Restaurant.AverageRating.ToString() (@Model.Restaurant.ReviewCount)</small>	
+									<small class="text-muted"> <a class="page-link" asp-route-id="@Model.Restaurant.Id" asp-action="Reviews" > @SharedLocalizer["common.Review"]</a> </small>
+								</div>
+								<div>
+									<div class="d-flex gap-2  ps-2 mt-2 ">
+										@foreach (var category in Model.Restaurant.RestaurantCategories)
+										{
+											<span class="badge-category mb-3">@(isRTL ? category.NameInArabic : category.Name)</span>
+										}
+									</div>
+								</div>
+								
+							</div>
+						</div>	
+					</div>
+				</div>
+			</div>
+		</div>
+
+		<div class="row mt-3">
+			<div class="col">
+                <h4 >@SharedLocalizer["common.Menu"]</h4>
+				<h4 class="border-bottom border-warning"></h4>
+            @foreach (var category in Model.MenuItemCategories)
+            {
+                 <h6 class="mt-5">
+                             @(isRTL ? category.NameInArabic : category.Name)
+                 </h6>
+
+                @foreach (var item in Model.MenuItems.Where(i => i.MenuItemCategoryId == category.Id))
+                {
+                <div class="row mb-3">
+                    <div class="col">
+                        <div class="card">
+                            <div class="row">
+                                <div class="col-3">
+                                    <img src="~/Images/@item.Image_url" height=125 class="rounded w-100" />
+                                </div>
+
+                                <div class="col">
+
+                                    <div class="mb-2">
+                                        <h4 class="card-title">
+                                                @(isRTL ? item.NameInArabic : item.Name)
+                                        </h4>
+
+                                        <small class="text-warning">
+                                                @(isRTL ? category.NameInArabic : category.Name)
+                                        </small>
+                                    </div>
+
+                                    <div>
+                                            @if (isRTL)
+                                            {
+                                                <p class="text-muted">
+                                                    @(item.DescriptionInArabic.Length > 150 ? item.DescriptionInArabic.Substring(0, 150) + "..." : item.DescriptionInArabic)
+                                                </p>
+                                            }
+                                            else
+                                            {
+                                                <p class="text-muted">
+                                                    @(item.Description.Length > 150 ? item.Description.Substring(0, 150) + "..." : item.Description)
+                                                </p>
+                                            }
+                                    </div>
+
+                                </div>
+
+                                <div class="col-2 border-start">
+
+                                    <div class="mb-2">
+
+                                            @if (item.AverageRating >= 4)
+                                            {
+                                                <small class="text-warning"><i class="bi bi-star-fill"></i></small>
+                                            }
+                                            else if (item.AverageRating >= 2)
+                                            {
+                                                <small class="text-warning"><i class="bi bi-star-half"></i></small>
+                                            }
+                                            else
+                                            {
+                                                <small class="text-warning"><i class="bi bi-star"></i></small>
+                                            }
+
+                                        <small class="text-secondary">
+                                                @item.AverageRating (@item.ReviewCount)
+                                        </small>
+
+                                    </div>
+
+                                    <div class="mb-2">
+                                                <span class="fw-bold fs-5 price-tag">
+                                                @item.Price
+                                            <small>
+                                                <img src="~/Images/r.png" width="10" height="10" />
+                                            </small>
+                                        </span>
+                                    </div>
+
+                                        @if (User.IsInRole(menus_project.Constants.AppRoles.User))
+                                        {
+                                            <div>
+                                                <form asp-action="ReviewItem" method="post">
+                                                      @Html.AntiForgeryToken()
+
+                                                   <input type="hidden" name="MenuItemId" value="@item.Id" />
+
+                                                   <div class="rating">
+                                                          @for (int i = 5; i >= 1; i--)
+                                                          {
+                                                               <input type="radio"name="Rating" id="star@(item.Id)_@i" value="@i" />
+                                                               <label for="star@(item.Id)_@i">★</label>
+                                                           }
+                                                   </div>
+
+                                                   <button type="submit" class="btn btn-primary">
+                                                               @SharedLocalizer["common.ReviewItem"]
+                                                   </button>
+                                               </form>
+                                          </div>
+                                        }
+                                       
+                                    
+
+                                </div>
+
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                }
+            }
+		</div>
+	</div>
+</div>

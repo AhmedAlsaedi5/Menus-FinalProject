@@ -1,0 +1,49 @@
+﻿@inject AppDbContext Context
+@{
+    bool isRTL = CultureInfo.CurrentCulture.TextInfo.IsRightToLeft;
+    var userId = UserManager.GetUserId(User);
+
+    var restaurant = Context.Restaurants.FirstOrDefault(r => r.UserId == userId);
+
+    var restaurantName = isRTL ? restaurant.NameInArabic : restaurant.Name;
+
+}
+
+<aside class="sidebar">
+        <div class="sidebar-brand">
+            <div class="sidebar-brand-name text-white">@restaurantName  <i class="fa-solid fa-utensils ms-2"></i></div>
+            <div class="sidebar-brand-sub">@SharedLocalizer["common.Dashboard"] </div>
+        </div>
+
+        <p class="sidebar-section">@SharedLocalizer["RestaurantDashboard.Main"]</p>
+
+        <a class="sidebar-item"
+           asp-controller="Dashboard" asp-action="Index">
+            <i class="fa-solid fa-chart-column"></i>
+             @SharedLocalizer["RestaurantDashboard.info"]
+        </a>
+
+        <a class="sidebar-item"
+           asp-controller="Dashboard" asp-action="Create">
+            <i class="bi bi-plus-circle"></i>
+             @SharedLocalizer["MenuItem.AddNew"]
+        </a>
+
+        <a class="sidebar-item"
+           asp-controller="Dashboard" asp-action="Reviews">
+            <i class="fa-solid fa-comment-dots"></i>
+             @SharedLocalizer["RestaurantDashboard.Reviews"]
+        </a>
+
+        
+
+        <hr class="sidebar-divider" />
+
+            <form asp-controller="Account" asp-action="Logout" method="post">
+            @Html.AntiForgeryToken()
+                <button type="submit" class="sidebar-item text-danger w-100 border-0 bg-transparent">
+                    <i class="bi bi-box-arrow-right"></i>
+                @SharedLocalizer["common.Logout"]
+                </button>
+            </form>
+    </aside>

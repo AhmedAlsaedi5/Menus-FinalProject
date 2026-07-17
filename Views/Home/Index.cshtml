@@ -1,0 +1,99 @@
+﻿@model menus_project.ViewModel.HomeViewModel
+@inject AppDbContext Context
+@{
+	bool isRTL = CultureInfo.CurrentCulture.TextInfo.IsRightToLeft;
+
+}
+
+<div class="continer">
+	<div class="row mt-3 mb-5">
+		<div class="col">
+			<h2 class="mb-4 ">@SharedLocalizer["common.RestaurantsList"] <i class="fa-solid fa-utensils ms-2"></i></h2>
+			<div class="divider-primary text-primary pt-3">
+			<form method="post" asp-action="Index">
+				@foreach (var category in Model.RestaurantsCategory)
+				{
+							<button type="submit" name="id" value="@category.Id" class="nav-pills ">
+						@(isRTL ? category.NameInArabic : category.Name)
+					</button>
+				}
+				<a asp-action="Index"  class="btn nav-pills">@SharedLocalizer["Common.Cancel"]</a>
+			</form>
+			</div>
+		</div>
+	</div>
+
+	<!--=====Restaurants======-->
+
+	<div class="row">
+	@foreach (var restaurant in Model.Restaurants)
+	{
+
+		
+			<div class="col-4 mb-4">
+					<a class="text-decoration-none text-reset d-block" asp-action="Menu" asp-route-id="@restaurant.Id"> 
+				<div class="card">
+					<div class="card-img-top mb-2">
+							<img src="~/Images/@restaurant.Image_url"  height=175 class="rounded w-100" />
+					</div>
+							<div class="ps-2 d-flex justify-content-between">
+							<h4 class="card-title">@(isRTL ? restaurant.NameInArabic : restaurant.Name)</h4>
+							
+								<form asp-action="ChangeFavorite" method="post">
+									@Html.AntiForgeryToken()
+									<input type="hidden" name="id" value="@restaurant.Id" />
+							
+									<button class="btn btn-link pe-3 border-0">
+										@if (Model.FavoriteRestaurantIds.Contains(restaurant.Id))
+										{
+												<i class="bi bi-heart-fill text-danger"></i>
+										}
+										else
+										{
+														<i class="bi bi-heart text-danger"></i>
+										}
+									</button>
+								</form>
+						</div>
+						
+					<div >
+						<div class="d-flex gap-1 ps-2"> 
+						
+							
+							@if(restaurant.AverageRating > 3)
+								{
+									<small class="text-warning"><i class="bi bi-star-fill"></i></small>
+								}
+								else if (restaurant.AverageRating > 1)
+								{
+													<small class="text-warning"><i class="bi bi-star-half"></i</small>
+								}
+								else
+								{
+													<small class="text-warning"> <i class="bi bi-star"></i></small>
+								}
+										<small class="text-secondary">@restaurant.AverageRating.ToString()</small>
+
+									<small class="text-muted">(@restaurant.ReviewCount) <a class="page-link" asp-route-id="@restaurant.Id" asp-action="Reviews" > @SharedLocalizer["common.Review"]</a> </small>
+
+						</div>
+						    
+								<small class="text-muted ps-2 ">@SharedLocalizer["common.RestaurantDistance"] @Model.CalculateDistance(restaurant.Locations).ToString("0.0") @SharedLocalizer["common.Km"]</small>	
+
+					</div>
+					<div class="d-flex gap-2  ps-2 mt-2 ">
+						@foreach(var category in restaurant.RestaurantCategories)
+						{
+							<span class="badge-category mb-3">@(isRTL ? category.NameInArabic : category.Name)</span>
+						}
+					</div>
+				</div>
+					</a>
+			</div>
+				
+		
+	}
+	</div>
+
+
+</div>

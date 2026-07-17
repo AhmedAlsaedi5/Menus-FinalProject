@@ -1,0 +1,39 @@
+﻿@model menus_project.ViewModel.LoginViewModel
+
+<div class="row justify-content-center mt-5">
+    <div class="col-md-5">
+        <div class="card shadow-sm">
+            <div class="card-body p-4">
+                <h2 class="text-center mb-4">@SharedLocalizer["common.Login"]</h2>
+
+                <form method="post" asp-action="Login">
+                    <input type="hidden" asp-for="ReturnUrl" />
+
+                    <div asp-validation-summary="ModelOnly" class="text-danger mb-3"></div>
+
+                    <div class="mb-3">
+                        <label asp-for="Email" class="form-label">@SharedLocalizer["common.Email"]</label>
+                        <input asp-for="Email" class="form-control" placeholder="name@example.com" />
+                        <span asp-validation-for="Email" class="text-danger"></span>
+                    </div>
+
+                    <div class="mb-3">
+                        <label asp-for="Password" class="form-label">@SharedLocalizer["common.Password"]</label>
+                        <input asp-for="Password" class="form-control" placeholder="@SharedLocalizer["common.EnterPassword"]" />
+                        <span asp-validation-for="Password" class="text-danger"></span>
+                    </div>
+
+                    <div class="mb-3 form-check">
+                        <input asp-for="RememberMe" class="form-check-input" />
+                        <label asp-for="RememberMe" class="form-check-label">@SharedLocalizer["common.RemeberMy"]</label>
+                    </div>
+
+                    <button type="submit" class="btn btn-primary w-100">@SharedLocalizer["common.Login"]</button>
+                </form>
+                <div class="text-center mt-3">
+                 <p class="small mb-0">@SharedLocalizer["common.YouDontHaveAccount"]<a asp-action="Register">@SharedLocalizer["common.CreateNewAccount"]</a></p>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

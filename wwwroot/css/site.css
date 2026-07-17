@@ -1,0 +1,932 @@
+﻿
+@import url('https://fonts.googleapis.com/css2?family=Cairo:wght@400;500;600;700&display=swap');
+
+
+:root {
+    /* الألوان الرئيسية */
+    --menus-primary: #E8A020;
+    --menus-primary-dark: #C47B12;
+    --menus-primary-tint: #FEF3DB;
+    --menus-primary-rgb: 232, 160, 32;
+    /* الألوان الوظيفية */
+    --menus-success: #3A7D57;
+    --menus-success-tint: #E8F4EE;
+    --menus-danger: #D94F3D;
+    --menus-danger-tint: #FDECEA;
+    /* الألوان المحايدة */
+    --menus-dark: #1C1410;
+    --menus-text: #1C1410;
+    --menus-text-muted: #6B5E52;
+    --menus-bg: #F7F1E8;
+    --menus-surface: #FFFFFF;
+    --menus-border: #E8E0D4;
+    /* القياسات */
+    --menus-radius: 10px;
+    --menus-radius-pill: 50px;
+    --menus-radius-card: 14px;
+}
+
+/* ------------------------------------------------------------
+   3. تعديل متغيرات Bootstrap الأساسية
+   ------------------------------------------------------------ */
+:root {
+    --bs-primary: var(--menus-primary);
+    --bs-primary-rgb: var(--menus-primary-rgb);
+    --bs-success: var(--menus-success);
+    --bs-danger: var(--menus-danger);
+    --bs-body-font-family: 'Cairo', sans-serif;
+    --bs-body-bg: var(--menus-bg);
+    --bs-body-color: var(--menus-text);
+    --bs-border-color: var(--menus-border);
+    --bs-border-radius: var(--menus-radius);
+    --bs-border-radius-lg: var(--menus-radius-card);
+    --bs-border-radius-pill: var(--menus-radius-pill);
+    --bs-link-color: var(--menus-primary);
+    --bs-link-hover-color: var(--menus-primary-dark);
+}
+
+/* ------------------------------------------------------------
+   4. النص العام — Typography
+   ------------------------------------------------------------ */
+body {
+    font-family: 'Cairo', sans-serif;
+    background-color: var(--menus-bg);
+    color: var(--menus-text);
+}
+
+h1, h2, h3, h4, h5, h6 {
+    font-weight: 700;
+    color: var(--menus-text);
+}
+
+
+.text-muted {
+    color: var(--menus-text-muted) !important;
+}
+
+
+/* ------------------------------------------------------------
+   Text Colors — ألوان النصوص
+   ------------------------------------------------------------ */
+.text-primary {
+    color: var(--menus-primary) !important;
+}
+
+.text-secondary {
+    color: var(--menus-text-muted) !important;
+}
+
+.text-success {
+    color: var(--menus-success) !important;
+}
+
+.text-danger {
+    color: var(--menus-danger) !important; 
+}
+
+.text-warning {
+    color: #C47B12 !important
+}
+
+.text-info {
+    color: #5B8FA8 !important;
+}
+
+.text-dark {
+    color: var(--menus-text) !important;
+}
+
+.text-light {
+    color: var(--menus-bg) !important;
+}
+
+.text-muted {
+    color: var(--menus-text-muted) !important;
+}
+
+.text-white {
+    color: #fff !important;
+}
+
+/* ------------------------------------------------------------
+   5. شريط التنقل — Navbar
+   ------------------------------------------------------------ */
+.navbar {
+    background-color: var(--menus-dark) !important;
+    padding: 0.75rem 1.25rem;
+    box-shadow: 0 2px 12px rgba(0, 0, 0, 0.25);
+}
+
+.navbar-brand {
+    color: var(--menus-primary) !important;
+    font-weight: 700;
+    font-size: 1.25rem;
+    letter-spacing: -0.01em;
+}
+
+    .navbar-brand:hover {
+        color: var(--menus-primary-dark) !important;
+    }
+
+.navbar-nav .nav-link {
+    color: rgba(200, 184, 154, 0.85) !important;
+    font-weight: 500;
+    font-size: 0.9rem;
+    transition: color 0.2s;
+    padding: 0.4rem 0.75rem;
+}
+
+    .navbar-nav .nav-link:hover,
+    .navbar-nav .nav-link.active {
+        color: var(--menus-primary) !important;
+    }
+
+.navbar-toggler {
+    border-color: rgba(232, 160, 32, 0.4);
+}
+
+.navbar-toggler-icon {
+    background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 30 30'%3e%3cpath stroke='rgba%28232, 160, 32, 0.85%29' stroke-linecap='round' stroke-miterlimit='10' stroke-width='2' d='M4 7h22M4 15h22M4 23h22'/%3e%3c/svg%3e");
+}
+
+/* ------------------------------------------------------------
+   6. الأزرار — Buttons
+   ------------------------------------------------------------ */
+
+.btn {
+    font-family: 'Cairo', sans-serif;
+    font-weight: 600;
+    border-radius: var(--menus-radius);
+    transition: background-color 0.2s, border-color 0.2s, color 0.2s, transform 0.1s, box-shadow 0.2s;
+}
+
+    .btn:active {
+        transform: scale(0.98);
+    }
+
+
+.btn-primary {
+    background-color: var(--menus-primary);
+    border-color: var(--menus-primary);
+    color: #fff;
+}
+
+    .btn-primary:hover {
+        background-color: var(--menus-primary-dark);
+        border-color: var(--menus-primary-dark);
+        color: #fff;
+    }
+
+    .btn-primary:focus-visible {
+        box-shadow: 0 0 0 3px rgba(var(--menus-primary-rgb), 0.3);
+    }
+
+.btn-outline-primary {
+    color: var(--menus-primary);
+    border-color: var(--menus-primary);
+}
+
+    .btn-outline-primary:hover {
+        background-color: var(--menus-primary);
+        border-color: var(--menus-primary);
+        color: #fff;
+    }
+
+    .btn-outline-primary:focus-visible {
+        box-shadow: 0 0 0 3px rgba(var(--menus-primary-rgb), 0.3);
+    }
+
+
+.btn-secondary {
+    background-color: var(--menus-text-muted); 
+    border-color: var(--menus-text-muted);
+    color: #fff;
+}
+
+    .btn-secondary:hover {
+        background-color: var(--menus-text); 
+        border-color: var(--menus-text);
+        color: #fff;
+    }
+
+    .btn-secondary:focus-visible {
+        box-shadow: 0 0 0 3px rgba(107, 94, 82, 0.3);
+    }
+
+.btn-outline-secondary {
+    color: var(--menus-text-muted);
+    border-color: var(--menus-border);
+}
+
+    .btn-outline-secondary:hover {
+        background-color: var(--menus-bg);
+        border-color: var(--menus-text-muted);
+        color: var(--menus-text);
+    }
+
+
+.btn-success {
+    background-color: var(--menus-success);
+    border-color: var(--menus-success);
+    color: #fff;
+}
+
+    .btn-success:hover {
+        background-color: #2D6244;
+        border-color: #2D6244;
+        color: #fff;
+    }
+
+    .btn-success:focus-visible {
+        box-shadow: 0 0 0 3px rgba(58, 125, 87, 0.3);
+    }
+
+.btn-outline-success {
+    color: var(--menus-success);
+    border-color: var(--menus-success);
+}
+
+    .btn-outline-success:hover {
+        background-color: var(--menus-success);
+        border-color: var(--menus-success);
+        color: #fff;
+    }
+
+
+.btn-danger {
+    background-color: var(--menus-danger);
+    border-color: var(--menus-danger);
+    color: #fff;
+}
+
+    .btn-danger:hover {
+        background-color: #B83D2D;
+        border-color: #B83D2D;
+        color: #fff;
+    }
+
+    .btn-danger:focus-visible {
+        box-shadow: 0 0 0 3px rgba(217, 79, 61, 0.3);
+    }
+
+.btn-outline-danger {
+    color: var(--menus-danger);
+    border-color: var(--menus-danger);
+}
+
+    .btn-outline-danger:hover {
+        background-color: var(--menus-danger);
+        border-color: var(--menus-danger);
+        color: #fff;
+    }
+
+
+.btn-warning {
+    background-color: #F5C842;
+    border-color: #F5C842;
+    color: var(--menus-text);
+}
+
+    .btn-warning:hover {
+        background-color: #E8A020; 
+        border-color: #E8A020;
+        color: #fff;
+    }
+
+    .btn-warning:focus-visible {
+        box-shadow: 0 0 0 3px rgba(245, 200, 66, 0.3);
+    }
+
+.btn-outline-warning {
+    color: #C47B12;
+    border-color: #F5C842;
+}
+
+    .btn-outline-warning:hover {
+        background-color: #F5C842;
+        border-color: #F5C842;
+        color: var(--menus-text);
+    }
+
+
+.btn-info {
+    background-color: #5B8FA8;
+    border-color: #5B8FA8;
+    color: #fff;
+}
+
+    .btn-info:hover {
+        background-color: #4A7A91;
+        border-color: #4A7A91;
+        color: #fff;
+    }
+
+    .btn-info:focus-visible {
+        box-shadow: 0 0 0 3px rgba(91, 143, 168, 0.3);
+    }
+
+.btn-outline-info {
+    color: #5B8FA8;
+    border-color: #5B8FA8;
+}
+
+    .btn-outline-info:hover {
+        background-color: #5B8FA8;
+        border-color: #5B8FA8;
+        color: #fff;
+    }
+
+
+.btn-dark {
+    background-color: var(--menus-dark);
+    border-color: var(--menus-dark);
+    color: var(--menus-primary);
+}
+
+    .btn-dark:hover {
+        background-color: #0D0A08;
+        border-color: #0D0A08;
+        color: var(--menus-primary);
+    }
+
+    .btn-dark:focus-visible {
+        box-shadow: 0 0 0 3px rgba(28, 20, 16, 0.3);
+    }
+
+.btn-outline-dark {
+    color: var(--menus-dark);
+    border-color: var(--menus-dark);
+}
+
+    .btn-outline-dark:hover {
+        background-color: var(--menus-dark);
+        border-color: var(--menus-dark);
+        color: var(--menus-primary);
+    }
+
+.btn-light {
+    background-color: var(--menus-bg); 
+    border-color: var(--menus-border);
+    color: var(--menus-text);
+}
+
+    .btn-light:hover {
+        background-color: var(--menus-primary-tint);
+        border-color: var(--menus-primary);
+        color: var(--menus-primary-dark);
+    }
+
+    .btn-light:focus-visible {
+        box-shadow: 0 0 0 3px rgba(var(--menus-primary-rgb), 0.2);
+    }
+
+.btn-outline-light {
+    color: var(--menus-text-muted);
+    border-color: var(--menus-border);
+}
+
+    .btn-outline-light:hover {
+        background-color: var(--menus-primary-tint);
+        border-color: var(--menus-primary);
+        color: var(--menus-primary-dark);
+    }
+
+/* ------------------------------------------------------------
+   Link — نص فقط
+   ------------------------------------------------------------ */
+.btn-link {
+    color: var(--menus-primary);
+    text-decoration: none;
+    font-weight: 500;
+}
+
+    .btn-link:hover {
+        color: var(--menus-primary-dark);
+        text-decoration: underline;
+    }
+.btn-dark {
+    background-color: var(--menus-dark);
+    border-color: var(--menus-dark);
+    font-weight: 600;
+}
+
+/* ------------------------------------------------------------
+   7. البطاقات — Cards
+   ------------------------------------------------------------ */
+.card {
+    background-color: var(--menus-surface);
+    border: 0.5px solid var(--menus-border);
+    border-radius: var(--menus-radius-card);
+    box-shadow: none;
+    transition: box-shadow 0.2s, transform 0.2s;
+}
+
+    .card:hover {
+        box-shadow: 0 4px 20px rgba(28, 20, 16, 0.08);
+        transform: translateY(-2px);
+    }
+
+.card-title {
+    font-weight: 600;
+    color: var(--menus-text);
+}
+
+.card-text {
+    color: var(--menus-text-muted);
+    font-size: 0.875rem;
+}
+
+.card-img-top {
+    border-radius: var(--menus-radius-card) var(--menus-radius-card) 0 0;
+    object-fit: cover;
+}
+
+/* ------------------------------------------------------------
+   8. الشارات — Badges
+   ------------------------------------------------------------ */
+.badge {
+    font-weight: 500;
+    font-size: 0.75rem;
+    padding: 0.35em 0.8em;
+    border-radius: var(--menus-radius-pill);
+}
+
+    .badge.bg-primary {
+        background-color: var(--menus-primary) !important;
+        color: #fff;
+    }
+
+/* شارة تصنيف المطعم */
+.badge-category {
+    background-color: var(--menus-primary-tint);
+    color: #9A5B0A;
+    border: none;
+    flex-wrap: wrap;
+    display: flex;
+    flex-wrap: wrap;
+    gap: .3rem;
+}
+
+/* شارة "متاح" */
+.badge-available {
+    background-color: var(--menus-success-tint);
+    color: var(--menus-success);
+}
+
+/* شارة "غير متاح" */
+.badge-unavailable {
+    background-color: var(--menus-danger-tint);
+    color: var(--menus-danger);
+}
+
+/* ------------------------------------------------------------
+   9. حقول الإدخال — Forms
+   ------------------------------------------------------------ */
+.form-control,
+.form-select {
+    border-color: var(--menus-border);
+    border-radius: var(--menus-radius);
+    background-color: var(--menus-surface);
+    color: var(--menus-text);
+    font-family: 'Cairo', sans-serif;
+    transition: border-color 0.2s, box-shadow 0.2s;
+}
+
+    .form-control:focus,
+    .form-select:focus {
+        border-color: var(--menus-primary);
+        box-shadow: 0 0 0 3px rgba(var(--menus-primary-rgb), 0.15);
+        background-color: var(--menus-surface);
+        color: var(--menus-text);
+    }
+
+    .form-control::placeholder {
+        color: var(--menus-text-muted);
+        opacity: 0.7;
+    }
+
+.form-label {
+    font-weight: 500;
+    font-size: 0.875rem;
+    color: var(--menus-text);
+    margin-bottom: 0.4rem;
+}
+
+.input-group-text {
+    background-color: var(--menus-bg);
+    border-color: var(--menus-border);
+    color: var(--menus-text-muted);
+}
+
+/* ------------------------------------------------------------
+   10. التنقل بالتبويبات — Tabs / Pills (تصنيفات الأطباق)
+   ------------------------------------------------------------ */
+.nav-pills .nav-link {
+    color: var(--menus-text-muted);
+    font-weight: 500;
+    border-radius: var(--menus-radius-pill);
+    padding: 0.4rem 1.1rem;
+    font-size: 0.875rem;
+    transition: all 0.2s;
+    border: 0.5px solid transparent;
+}
+
+    .nav-pills .nav-link:hover {
+        color: var(--menus-primary);
+        background-color: var(--menus-primary-tint);
+    }
+
+    .nav-pills .nav-link.active {
+        background-color: var(--menus-primary);
+        color: #fff;
+        border-color: var(--menus-primary);
+    }
+
+.nav-tabs .nav-link {
+    color: var(--menus-text-muted);
+    font-weight: 500;
+    border-color: transparent;
+    transition: color 0.2s;
+}
+
+    .nav-tabs .nav-link:hover {
+        color: var(--menus-primary);
+        border-color: transparent;
+    }
+
+    .nav-tabs .nav-link.active {
+        color: var(--menus-primary);
+        border-bottom-color: var(--menus-primary);
+        font-weight: 600;
+    }
+
+/* ------------------------------------------------------------
+   11. الجداول — Tables
+   ------------------------------------------------------------ */
+.table {
+    --bs-table-bg: var(--menus-surface);
+    --bs-table-striped-bg: var(--menus-bg);
+    --bs-table-hover-bg: var(--menus-primary-tint); 
+    --bs-table-border-color: var(--menus-border);
+    color: var(--menus-text);
+}
+
+    .table thead th {
+        background-color: var(--menus-dark);
+        color: var(--menus-primary);
+        font-weight: 600;
+        border-color: transparent;
+        font-size: 0.875rem;
+    }
+
+    .table > :not(caption) > * > * {
+        border-color: var(--menus-border); 
+    }
+
+/* ------------------------------------------------------------
+   12. التنبيهات — Alerts
+   ------------------------------------------------------------ */
+.alert-primary {
+    background-color: var(--menus-primary-tint);
+    border-color: rgba(var(--menus-primary-rgb), 0.3);
+    color: #9A5B0A;
+}
+
+.alert-success {
+    background-color: var(--menus-success-tint);
+    border-color: rgba(58, 125, 87, 0.3);
+    color: var(--menus-success);
+}
+
+.alert-danger {
+    background-color: var(--menus-danger-tint);
+    border-color: rgba(217, 79, 61, 0.3);
+    color: var(--menus-danger);
+}
+
+.alert-warning {
+    background-color: var(--menus-primary-tint); /* #FEF3DB */
+    border-color: rgba(var(--menus-primary-rgb), 0.3);
+    color: #9A5B0A;
+}
+
+.alert-info {
+    background-color: #EAF3F8;
+    border-color: rgba(91, 143, 168, 0.3);
+    color: #3A6478;
+}
+
+/* ------------------------------------------------------------
+   13. النجوم — Star Rating
+   ------------------------------------------------------------ */
+.star-rating {
+    color: var(--menus-primary);
+    font-size: 0.9rem;
+    letter-spacing: 1px;
+}
+
+    .star-rating .star-empty {
+        color: var(--menus-border);
+    }
+
+/* ------------------------------------------------------------
+   14. الترقيم — Pagination
+   ------------------------------------------------------------ */
+.page-link {
+    color: var(--menus-primary);
+    border: none;
+    font-weight: 500;
+    transition: all 0.2s;
+}
+
+    .page-link:hover {
+        background-color: var(--menus-primary-tint);
+        border-color: var(--menus-primary);
+
+        color: var(--menus-primary-dark);
+    }
+
+.page-item.active .page-link {
+    background-color: var(--menus-primary);
+    border-color: var(--menus-primary);
+    color: #fff;
+}
+
+/* ------------------------------------------------------------
+   15. مساعدات مخصصة — Custom Utilities
+   ------------------------------------------------------------ */
+
+/* سعر الطبق */
+.price-tag {
+    color: var(--menus-primary);
+    font-weight: 700;
+    font-size: 1rem;
+}
+
+/* بطاقة المطعم */
+.restaurant-card .card-img-overlay-top {
+    position: absolute;
+    top: 10px;
+    left: 10px;
+    right: auto;
+}
+
+/* شريط التقييم */
+.rating-bar {
+    height: 5px;
+    border-radius: 3px;
+    background-color: var(--menus-border);
+    overflow: hidden;
+}
+
+    .rating-bar .rating-fill {
+        height: 100%;
+        background-color: var(--menus-primary);
+        border-radius: 3px;
+        transition: width 0.4s ease;
+    }
+
+/* فاصل بالألوان */
+.divider-primary {
+    border-top: 2px solid var(--menus-primary);
+    opacity: 1;
+    margin: 0.5rem 0 1rem;
+}
+
+/* خلفية الهيدر في صفحات التفاصيل */
+.page-header {
+    background-color: var(--menus-dark);
+    color: #fff;
+    padding: 2rem 0;
+}
+
+    .page-header h1 {
+        color: #fff;
+    }
+
+    .page-header .text-muted {
+        color: rgba(200, 184, 154, 0.8) !important;
+    }
+
+.status-dot {
+    width: 8px;
+    height: 8px;
+    border-radius: 50%;
+    display: inline-block;
+}
+
+    .status-dot.active {
+        background-color: var(--menus-success);
+    }
+
+    .status-dot.inactive {
+        background-color: var(--menus-danger);
+    }
+
+
+.card.no-hover:hover {
+    box-shadow: none;
+    transform: none;
+}
+
+
+/* ============================================================
+   Menus Project — Sidebar
+   ============================================================ */
+
+/* ------------------------------------------------------------
+   Layout الرئيسي
+   ------------------------------------------------------------ */
+.dashboard-wrapper {
+    display: flex;
+    min-height: calc(100vh - 56px);
+}
+
+.sidebar {
+    width: 240px;
+    min-width: 240px;
+    background: #1C1410;
+    padding: 1rem 0;
+    display: flex;
+    flex-direction: column;
+    position: sticky;
+    top: 56px; 
+    height: calc(100vh - 56px);
+    overflow-y: auto;
+    transition: width 0.3s ease;
+}
+
+.sidebar-content {
+    flex: 1;
+    padding: 1.5rem;
+    background: var(--menus-bg);
+    overflow-y: auto;
+}
+
+/* ------------------------------------------------------------
+   Brand
+   ------------------------------------------------------------ */
+.sidebar-brand {
+    padding: 0.5rem 1.25rem 1rem;
+    border-bottom: 0.5px solid rgba(255, 255, 255, 0.08);
+    margin-bottom: 0.5rem;
+}
+
+.sidebar-brand-name {
+    color: var(--menus-primary);
+    font-size: 1.1rem;
+    font-weight: 700;
+}
+
+.sidebar-brand-sub {
+    font-size: 11px;
+    color: rgba(200, 184, 154, 0.5);
+    margin-top: 2px;
+}
+
+/* ------------------------------------------------------------
+   Section Label
+   ------------------------------------------------------------ */
+.sidebar-section {
+    padding: 0.5rem 1.25rem 0.25rem;
+    font-size: 10px;
+    color: rgba(200, 184, 154, 0.4);
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    margin: 0;
+}
+
+
+/* ------------------------------------------------------------
+   Nav Items
+   ------------------------------------------------------------ */
+.sidebar-item {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    padding: 0.6rem 1.25rem;
+    font-size: 13px;
+    font-weight: 500;
+    color: rgba(200, 184, 154, 0.8);
+    cursor: pointer;
+    transition: all 0.2s;
+    text-decoration: none;
+    border-right: 3px solid transparent; /* RTL */
+    position: relative;
+}
+
+    .sidebar-item:hover {
+        background: rgba(232, 160, 32, 0.08);
+        color: var(--menus-primary);
+        border-right-color: rgba(232, 160, 32, 0.4);
+        text-decoration: none;
+    }
+
+    .sidebar-item i {
+        font-size: 17px;
+        min-width: 20px;
+        text-align: center;
+    }
+
+
+
+
+/* ------------------------------------------------------------
+   Divider
+   ------------------------------------------------------------ */
+.sidebar-divider {
+    height: 0.5px;
+    background: rgba(255, 255, 255, 0.07);
+    margin: 0.4rem 0;
+    border: none;
+}
+
+
+/* ============================================================
+   Category Checkboxes Override
+   ============================================================ */
+
+
+.category-checkbox {
+    padding: 0;
+    margin: 0;
+}
+
+    .category-checkbox .form-check-label {
+        display: flex;
+        align-items: center;
+        gap: 8px;
+        padding: 8px 14px;
+        border-radius: var(--menus-radius-pill);
+        border: 0.5px solid var(--menus-border);
+        background: var(--menus-surface);
+        color: var(--menus-text-muted);
+        font-size: 13px;
+        font-weight: 500;
+        cursor: pointer;
+        transition: all 0.15s;
+        user-select: none;
+        white-space: nowrap;
+    }
+
+        .category-checkbox .form-check-label:hover {
+            border-color: var(--menus-primary);
+            color: var(--menus-primary);
+            background: var(--menus-primary-tint);
+        }
+
+
+    .category-checkbox .form-check-input {
+        display: none; 
+    }
+
+
+        .category-checkbox .form-check-input:checked + .form-check-label {
+            border-color: var(--menus-primary);
+            background: var(--menus-primary-tint);
+            color: #9A5B0A;
+            font-weight: 600;
+        }
+
+
+            .category-checkbox .form-check-input:checked + .form-check-label::before {
+                content: "✓";
+                font-size: 11px;
+                color: var(--menus-primary);
+                font-weight: 700;
+            }
+
+.restaurant-image {
+    width: 180px;
+    height: 180px;
+    object-fit: cover;
+    border-radius: 15px;
+}
+
+.rating {
+    display: inline-flex;
+    flex-direction: row-reverse;
+}
+
+    .rating input {
+        display: none;
+    }
+
+    .rating label {
+        font-size: 2.5rem;
+        color: #ccc;
+        cursor: pointer;
+        transition: color .2s;
+        margin: 0 2px;
+    }
+
+        /* عند المرور بالماوس */
+        .rating label:hover,
+        .rating label:hover ~ label {
+            color: #ffc107;
+        }
+
+    /* بعد الاختيار */
+    .rating input:checked ~ label {
+        color: #ffc107;
+    }

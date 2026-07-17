@@ -1,0 +1,143 @@
+﻿@model menus_project.ViewModel.RegisterRestaurantViewModel
+@{
+	bool isRTL = CultureInfo.CurrentCulture.TextInfo.IsRightToLeft;
+}
+<div class="containe">
+	<div class="row mt-3 ">
+		<div class="col">
+			<div class="card no-hover">
+				<div class="card-title text-center mt-3">
+					<h3 class="text-primary">@SharedLocalizer["common.Register"]</h3>
+				</div>
+				<div class="card-body mt-4 ms-5">
+					<form method="post" enctype="multipart/form-data" asp-action="RegisterRestaurant" >
+						<div class="d-flex gap-3 mb-3 w-75">
+							<div class="w-50">
+								<label class="form-label" asp-for="User.FirstName">@SharedLocalizer["common.FirstName"]</label>
+								<input type="text" class="form-control" placeholder="@SharedLocalizer["common.EnterFirstName"]" asp-for="User.FirstName" />
+								<span asp-validation-for="User.FirstName" class="text-danger"></span>
+							</div>
+							<div class="w-50">
+								<label class="form-label">@SharedLocalizer["common.LastName"]</label>
+								<input type="text" class="form-control" placeholder="@SharedLocalizer["common.EnterLastName"]" asp-for="User.LastName" />
+								<span asp-validation-for="User.LastName" class="text-danger"></span>
+							</div>
+
+						</div>
+
+
+						<div class="w-75 mb-3">
+							<label class="form-label">@SharedLocalizer["common.Email"]</label>
+							<input type="text" class="form-control" placeholder="@SharedLocalizer["common.EnterEmail"]" asp-for="User.Email" />
+							<span asp-validation-for="User.Email" class="text-danger"></span>
+						</div>
+
+						<div class="w-75 mb-3">
+							<label class="form-label">@SharedLocalizer["common.Phone"]</label>
+							<input type="text" class="form-control" placeholder="@SharedLocalizer["common.EnterPhone"]" asp-for="User.PhoneNumber" />
+							<span asp-validation-for="User.PhoneNumber" class="text-danger"></span>
+						</div>
+
+
+						<div class="w-75 mb-3">
+							<label class="form-label">@SharedLocalizer["common.Password"]</label>
+							<input type="password" class="form-control" placeholder="@SharedLocalizer["common.EnterPassword"]" asp-for="User.Password" />
+							<span asp-validation-for="User.Password" class="text-danger"></span>
+						</div>
+
+						<div class="w-75 mb-3">
+							<label class="form-label">@SharedLocalizer["common.ConfirmPassword"]</label>
+							<input type="password" class="form-control" placeholder="@SharedLocalizer["common.Password"]" asp-for="User.ConfirmPaasword" />
+							<span asp-validation-for="User.ConfirmPaasword" class="text-danger"></span>
+						</div>
+
+
+						<!--============RestaurantInfo============-->
+
+						<div class="border-bottom text-muted mt-4 mb-2"><span >@SharedLocalizer["common.RestaurantInfo"]</span></div>
+						
+
+						<div class="d-flex gap-3 mb-3 w-75">
+							<div class="w-50">
+								<label class="form-label" asp-for="RestaurantName">@SharedLocalizer["common.RestaurantNameInEnglish"]</label>
+								<input type="text" class="form-control" placeholder="@SharedLocalizer["common.EnterRestaurantName"]" asp-for="RestaurantName" />
+								<span asp-validation-for="RestaurantName" class="text-danger"></span>
+							</div>
+							<div class="w-50">
+								<label class="form-label" asp-for="RestaurantNameInArabic">@SharedLocalizer["common.RestaurantNameInArabic"]</label>
+								<input type="text" class="form-control" placeholder="@SharedLocalizer["common.EnterRestaurantName"]" asp-for="RestaurantNameInArabic" />
+								<span asp-validation-for="RestaurantNameInArabic" class="text-danger"></span>
+							</div>
+						</div>
+
+						 <div class="mb-4">
+							<div class="mb-4">
+								<label class="form-label">
+										@SharedLocalizer["common.RestaurantCategories"]
+								</label>
+							
+								<div class="d-flex flex-wrap gap-2">
+											@foreach (var category in Model.Categories)
+											{
+											<div class="form-check category-checkbox">
+												<input class="form-check-input" type="checkbox" name="SelectedCategoryIds" value="@category.Id" id="cat_@category.Id"
+													 @(Model.SelectedCategoryIds != null &&Model.SelectedCategoryIds.Contains(category.Id)? "checked" : "") />
+												<label class="form-check-label" for="cat_@category.Id">
+														@(isRTL? category.NameInArabic : category.Name)
+												</label>
+											</div>
+											}
+								</div>
+								<span class="text-danger" asp-validation-for="SelectedCategoryIds"></span>						
+							</div>
+						</div> 
+
+
+						<div class="d-flex gap-3 mb-3 w-75">
+							<div class="w-50">
+								<label class="form-label" asp-for="Address">@SharedLocalizer["Register.RestaurantAddress"]</label>
+								<input type="text" class="form-control" placeholder="@SharedLocalizer["Register.EnterRestaurantAddress"]" asp-for="Address" />
+								<span asp-validation-for="RestaurantName" class="text-danger"></span>
+							</div>
+							<div class="w-50">
+								<label class="form-label" asp-for="Latitude">@SharedLocalizer["Register.RestaurantLatitude"]</label>
+								<input type="number" min="-90" max="90" step="any" class="form-control" placeholder="@SharedLocalizer["Register.EnterRestaurantLatitude"]" asp-for="Latitude" />
+								<span asp-validation-for="Latitude" class="text-danger"></span>
+							</div>
+							<div class="w-50">
+								<label class="form-label"  asp-for="Longitude">@SharedLocalizer["Register.RestaurantLongitude"]</label>
+								<input type="number" min="-180" max="180" step="any"  class="form-control" placeholder="@SharedLocalizer["Register.RestaurantLongitude"]" asp-for="Longitude" />
+								<span asp-validation-for="Longitude" class="text-danger"></span>
+							</div>
+						</div>
+
+						<div class="mb-4 w-75"> 
+							<label class="form-label">@SharedLocalizer["Restaurant.Image"]</label>
+							<input type="file" class="form-control" placeholder="@SharedLocalizer["Restaurant.EnterImage"]" asp-for="ImageFile" />
+							<span class="text-danger" asp-validation-for="ImageFile"></span>
+	
+						</div>
+						
+
+
+						<!--=========Create===========-->
+
+						<div class="d-flex justify-content-center ">
+							<button type="submit" class="btn btn-primary w-25 ">
+								@SharedLocalizer["common.CreateAccount"]
+							</button>
+						</div>
+
+						<div class="text-center mt-3">
+							<span>@SharedLocalizer["common.YouHaveAccount"]</span>
+							<a asp-action="Login">@SharedLocalizer["common.Login"]</a>
+						</div>
+						 <div asp-validation-summary="All" class="text-danger mb-3"></div>
+
+					</form>
+
+				</div>
+			</div>
+		</div>
+	</div>
+</div>

@@ -1,0 +1,63 @@
+﻿@model menus_project.Models.Restaurant
+
+@{
+	bool isRTL = CultureInfo.CurrentCulture.TextInfo.IsRightToLeft;
+}
+
+<div class="container">
+	<div class="row">
+		<div class="col">
+			<div class="card no-hover">
+				<div class="row ">
+					<div class="col-2 object-fit-cover  rounded">
+					<img src="~/Images/@Model.Image_url" height=100 class="rounded w-100 " />
+				</div>
+				<div class="col">
+					<h2>@(isRTL ? Model.NameInArabic : Model.Name)</h2>
+					<div class="text-muted d-flex gap-1"><h6>@SharedLocalizer["RestaurantInfo.CountLocations"] </h6> <h6>@Model.Locations.Count.ToString()  <i class="bi bi-shop-window"></i></h6></div>
+
+					<div class="d-flex gap-2">
+							@foreach (var category in Model.RestaurantCategories)
+							{
+										<h6 class=" badge badge-category">@(isRTL ? category.NameInArabic : category.Name)</h6>
+							}
+					</div>
+				</div>
+				
+				</div>
+			</div>
+		</div>
+	</div>
+	<div class="row mt-3">
+		<div class="col">
+			<div class="card">
+				<div class="card-title text-center ">
+					<h4>@SharedLocalizer["RestaurantInfo.CountItems"]</h4>
+					<h1 class="text-success"><i class="fa-solid fa-bowl-food"></i></h1>
+					<h4 class="text-success">@Model.MenuItems.Count.ToString()</h4>
+				</div>
+			</div>
+		</div>
+
+		<div class="col">
+			<div class="card">
+				<div class="card-title text-center">
+					<h4>@SharedLocalizer["RestaurantInfo.CountReviews"]</h4>
+					<h1 class="text-info"><i class="bi bi-chat-left-dots"></i></h1>
+					<h4 class="text-info">@Model.ReviewCount.ToString()</h4>
+				</div>
+			</div>
+		</div>
+
+		<div class="col">
+			<div class="card">
+				<div class="card-title text-center text-primary">
+					<h4 >@SharedLocalizer["RestaurantInfo.AverageRating"]</h4>
+					<h1 class="text-primary"><i class="bi bi-star-fill"></i></h1>
+					<h4 class="text-primary">@Model.AverageRating.ToString()</h4>
+				</div>
+			</div>
+		</div>
+	</div>
+
+

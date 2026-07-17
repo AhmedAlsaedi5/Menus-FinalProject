@@ -1,0 +1,447 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<root>
+  <!-- 
+    Microsoft ResX Schema 
+    
+    Version 2.0
+    
+    The primary goals of this format is to allow a simple XML format 
+    that is mostly human readable. The generation and parsing of the 
+    various data types are done through the TypeConverter classes 
+    associated with the data types.
+    
+    Example:
+    
+    ... ado.net/XML headers & schema ...
+    <resheader name="resmimetype">text/microsoft-resx</resheader>
+    <resheader name="version">2.0</resheader>
+    <resheader name="reader">System.Resources.ResXResourceReader, System.Windows.Forms, ...</resheader>
+    <resheader name="writer">System.Resources.ResXResourceWriter, System.Windows.Forms, ...</resheader>
+    <data name="Name1"><value>this is my long string</value><comment>this is a comment</comment></data>
+    <data name="Color1" type="System.Drawing.Color, System.Drawing">Blue</data>
+    <data name="Bitmap1" mimetype="application/x-microsoft.net.object.binary.base64">
+        <value>[base64 mime encoded serialized .NET Framework object]</value>
+    </data>
+    <data name="Icon1" type="System.Drawing.Icon, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+        <value>[base64 mime encoded string representing a byte array form of the .NET Framework object]</value>
+        <comment>This is a comment</comment>
+    </data>
+                
+    There are any number of "resheader" rows that contain simple 
+    name/value pairs.
+    
+    Each data row contains a name, and value. The row also contains a 
+    type or mimetype. Type corresponds to a .NET class that support 
+    text/value conversion through the TypeConverter architecture. 
+    Classes that don't support this are serialized and stored with the 
+    mimetype set.
+    
+    The mimetype is used for serialized objects, and tells the 
+    ResXResourceReader how to depersist the object. This is currently not 
+    extensible. For a given mimetype the value must be set accordingly:
+    
+    Note - application/x-microsoft.net.object.binary.base64 is the format 
+    that the ResXResourceWriter will generate, however the reader can 
+    read any of the formats listed below.
+    
+    mimetype: application/x-microsoft.net.object.binary.base64
+    value   : The object must be serialized with 
+            : System.Runtime.Serialization.Formatters.Binary.BinaryFormatter
+            : and then encoded with base64 encoding.
+    
+    mimetype: application/x-microsoft.net.object.soap.base64
+    value   : The object must be serialized with 
+            : System.Runtime.Serialization.Formatters.Soap.SoapFormatter
+            : and then encoded with base64 encoding.
+
+    mimetype: application/x-microsoft.net.object.bytearray.base64
+    value   : The object must be serialized into a byte array 
+            : using a System.ComponentModel.TypeConverter
+            : and then encoded with base64 encoding.
+    -->
+  <xsd:schema id="root" xmlns="" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata">
+    <xsd:import namespace="http://www.w3.org/XML/1998/namespace" />
+    <xsd:element name="root" msdata:IsDataSet="true">
+      <xsd:complexType>
+        <xsd:choice maxOccurs="unbounded">
+          <xsd:element name="metadata">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" />
+              </xsd:sequence>
+              <xsd:attribute name="name" use="required" type="xsd:string" />
+              <xsd:attribute name="type" type="xsd:string" />
+              <xsd:attribute name="mimetype" type="xsd:string" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="assembly">
+            <xsd:complexType>
+              <xsd:attribute name="alias" type="xsd:string" />
+              <xsd:attribute name="name" type="xsd:string" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="data">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+                <xsd:element name="comment" type="xsd:string" minOccurs="0" msdata:Ordinal="2" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" msdata:Ordinal="1" />
+              <xsd:attribute name="type" type="xsd:string" msdata:Ordinal="3" />
+              <xsd:attribute name="mimetype" type="xsd:string" msdata:Ordinal="4" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="resheader">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" />
+            </xsd:complexType>
+          </xsd:element>
+        </xsd:choice>
+      </xsd:complexType>
+    </xsd:element>
+  </xsd:schema>
+  <resheader name="resmimetype">
+    <value>text/microsoft-resx</value>
+  </resheader>
+  <resheader name="version">
+    <value>2.0</value>
+  </resheader>
+  <resheader name="reader">
+    <value>System.Resources.ResXResourceReader, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <resheader name="writer">
+    <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <data name="common.AddComment" xml:space="preserve">
+    <value>اكتب تعليق</value>
+  </data>
+  <data name="common.AddRestaurantReview" xml:space="preserve">
+    <value>قيم المطعم</value>
+  </data>
+  <data name="Common.Cancel" xml:space="preserve">
+    <value>إلغاء</value>
+  </data>
+  <data name="Common.ChangeStatus" xml:space="preserve">
+    <value>تغيير الحالة</value>
+  </data>
+  <data name="common.ConfirmPassword" xml:space="preserve">
+    <value>تأكيد كلمة المرور</value>
+  </data>
+  <data name="common.CreateAccount" xml:space="preserve">
+    <value>أنشاء الحساب</value>
+  </data>
+  <data name="common.CreateNewAccount" xml:space="preserve">
+    <value>أنشئ حساباً جديداً</value>
+  </data>
+  <data name="common.Dashboard" xml:space="preserve">
+    <value>لوحة التحكم</value>
+  </data>
+  <data name="Common.Delete" xml:space="preserve">
+    <value>حذف</value>
+  </data>
+  <data name="Common.Edit" xml:space="preserve">
+    <value>تعديل</value>
+  </data>
+  <data name="common.Email" xml:space="preserve">
+    <value>البريد الالكتروني</value>
+  </data>
+  <data name="common.EnterComment" xml:space="preserve">
+    <value>ادخل التعليق</value>
+  </data>
+  <data name="common.EnterEmail" xml:space="preserve">
+    <value>ادخل البريد الالكتروني</value>
+  </data>
+  <data name="common.EnterFirstName" xml:space="preserve">
+    <value>أدخل الاسم الاول</value>
+  </data>
+  <data name="common.EnterLastName" xml:space="preserve">
+    <value>أدخل الاسم الاخير</value>
+  </data>
+  <data name="common.EnterPassword" xml:space="preserve">
+    <value>ادخل كلمة المرور</value>
+  </data>
+  <data name="common.EnterPhone" xml:space="preserve">
+    <value>ادخل رقم الهاتف</value>
+  </data>
+  <data name="common.EnterRestaurantName" xml:space="preserve">
+    <value>أدخل اسم المطعم</value>
+  </data>
+  <data name="common.FirstName" xml:space="preserve">
+    <value>الاسم الاول</value>
+  </data>
+  <data name="Common.Guest" xml:space="preserve">
+    <value>ضيف</value>
+  </data>
+  <data name="common.Km" xml:space="preserve">
+    <value>كم</value>
+  </data>
+  <data name="common.LastName" xml:space="preserve">
+    <value>الاسم الاخير</value>
+  </data>
+  <data name="common.Login" xml:space="preserve">
+    <value>تسجيل الدخول</value>
+  </data>
+  <data name="common.Logout" xml:space="preserve">
+    <value>تسجيل الخروج</value>
+  </data>
+  <data name="common.Menu" xml:space="preserve">
+    <value>قائمة الاصناف</value>
+  </data>
+  <data name="common.NoRestaurantReviews" xml:space="preserve">
+    <value>لا توجد مراجعات للمطعم</value>
+  </data>
+  <data name="common.Password" xml:space="preserve">
+    <value>كلمة المرور</value>
+  </data>
+  <data name="common.Phone" xml:space="preserve">
+    <value>رقم الهاتف</value>
+  </data>
+  <data name="common.Profile" xml:space="preserve">
+    <value>الملف الشخصي</value>
+  </data>
+  <data name="common.Register" xml:space="preserve">
+    <value>إنشاء حساب جديد</value>
+  </data>
+  <data name="common.RegisterAsRestaurant" xml:space="preserve">
+    <value>تسجيل كمطعم</value>
+  </data>
+  <data name="common.RegisterAsUser" xml:space="preserve">
+    <value>تسجيل كمستخدم</value>
+  </data>
+  <data name="common.RemeberMy" xml:space="preserve">
+    <value>تذكرني في المرة القادمة</value>
+  </data>
+  <data name="common.RestaurantCategories" xml:space="preserve">
+    <value>تصنيف المطعم</value>
+  </data>
+  <data name="common.RestaurantDistance" xml:space="preserve">
+    <value>يبعد عنك</value>
+  </data>
+  <data name="common.RestaurantInfo" xml:space="preserve">
+    <value>معلومات المطعم</value>
+  </data>
+  <data name="common.RestaurantNameInArabic" xml:space="preserve">
+    <value>اسم المطعم بالعربي</value>
+  </data>
+  <data name="common.RestaurantNameInEnglish" xml:space="preserve">
+    <value>اسم المطعم بالانجليزي</value>
+  </data>
+  <data name="common.RestaurantReviews" xml:space="preserve">
+    <value>مراجعات المطعم</value>
+  </data>
+  <data name="common.RestaurantReviewsCount" xml:space="preserve">
+    <value>عدد مراجعات المطعم</value>
+  </data>
+  <data name="common.RestaurantsList" xml:space="preserve">
+    <value>قائمة المطاعم</value>
+  </data>
+  <data name="common.Review" xml:space="preserve">
+    <value>تقييم</value>
+  </data>
+  <data name="common.ReviewItem" xml:space="preserve">
+    <value>قيم الصنف</value>
+  </data>
+  <data name="Common.Save" xml:space="preserve">
+    <value>حفظ</value>
+  </data>
+  <data name="Common.Search" xml:space="preserve">
+    <value>بحث</value>
+  </data>
+  <data name="common.YouDontHaveAccount" xml:space="preserve">
+    <value>ليس لديك حساب؟</value>
+  </data>
+  <data name="common.YouHaveAccount" xml:space="preserve">
+    <value>لديك حساب بالفعل؟</value>
+  </data>
+  <data name="footer.Contact" xml:space="preserve">
+    <value>تاوصل</value>
+  </data>
+  <data name="footer.ContactUs" xml:space="preserve">
+    <value>تواصل معنا</value>
+  </data>
+  <data name="footer.FollowUs" xml:space="preserve">
+    <value>تابعنا</value>
+  </data>
+  <data name="footer.QuickLinks" xml:space="preserve">
+    <value>روابط سريعة</value>
+  </data>
+  <data name="footer.Services" xml:space="preserve">
+    <value>خدمات</value>
+  </data>
+  <data name="MenuItem.AddNew" xml:space="preserve">
+    <value>إضافة صنف جديد</value>
+  </data>
+  <data name="MenuItem.Category" xml:space="preserve">
+    <value>التصنيف</value>
+  </data>
+  <data name="MenuItem.ChooseCategory" xml:space="preserve">
+    <value>اختر تصنيف الصنف</value>
+  </data>
+  <data name="MenuItem.ConfirmChangeStatus" xml:space="preserve">
+    <value>هل أنت متأكد من تغيير الحالة؟</value>
+  </data>
+  <data name="MenuItem.ConfirmDelete" xml:space="preserve">
+    <value>هل أنت متأكد من حذف الصنف؟</value>
+  </data>
+  <data name="MenuItem.CountItems" xml:space="preserve">
+    <value>عدد الأصناف</value>
+  </data>
+  <data name="MenuItem.Description" xml:space="preserve">
+    <value>الوصف</value>
+  </data>
+  <data name="MenuItem.DescriptionInArabic" xml:space="preserve">
+    <value>أدخل وصف الصنف بالعربية</value>
+  </data>
+  <data name="MenuItem.DescriptionInEnglish" xml:space="preserve">
+    <value>أدخل وصف الصنف بالإنجليزية</value>
+  </data>
+  <data name="MenuItem.Edit" xml:space="preserve">
+    <value>تعديل الصنف</value>
+  </data>
+  <data name="MenuItem.EnterDescription" xml:space="preserve">
+    <value>أدخل الوصف</value>
+  </data>
+  <data name="MenuItem.EnterImage" xml:space="preserve">
+    <value>أضف صورة الصنف</value>
+  </data>
+  <data name="MenuItem.EnterItemName" xml:space="preserve">
+    <value>أدخل اسم الصنف</value>
+  </data>
+  <data name="MenuItem.EnterNameToSearch" xml:space="preserve">
+    <value>أدخل اسم الصنف</value>
+  </data>
+  <data name="MenuItem.EnterPrice" xml:space="preserve">
+    <value>ادخل سعر الصنف</value>
+  </data>
+  <data name="MenuItem.Image" xml:space="preserve">
+    <value>الصورة</value>
+  </data>
+  <data name="MenuItem.Name" xml:space="preserve">
+    <value>اسم الصنف</value>
+  </data>
+  <data name="MenuItem.NameInArabic" xml:space="preserve">
+    <value>اسم الصنف بالعربية</value>
+  </data>
+  <data name="MenuItem.NameInEnglish" xml:space="preserve">
+    <value>اسم الصنف بالإنجليزية</value>
+  </data>
+  <data name="MenuItem.Price" xml:space="preserve">
+    <value>السعر</value>
+  </data>
+  <data name="MenuItem.Procedure" xml:space="preserve">
+    <value>الإجراءات</value>
+  </data>
+  <data name="MenuItem.Search" xml:space="preserve">
+    <value>البحث عن صنف</value>
+  </data>
+  <data name="MenuItem.ShowItems" xml:space="preserve">
+    <value>عرض الأصناف</value>
+  </data>
+  <data name="MenuItem.Status" xml:space="preserve">
+    <value>الحالة</value>
+  </data>
+  <data name="Nav.FavoriteRestaurants" xml:space="preserve">
+    <value>المطاعم المفضلة</value>
+  </data>
+  <data name="Nav.Home" xml:space="preserve">
+    <value>الصفحة الرئيسية</value>
+  </data>
+  <data name="Register.EnterRestaurantAddress" xml:space="preserve">
+    <value>ادخل اسم عنوان المطعم</value>
+  </data>
+  <data name="Register.EnterRestaurantLatitude" xml:space="preserve">
+    <value> ادخل خط العرض : 24.6830602</value>
+  </data>
+  <data name="Register.EnterRestaurantLongitude" xml:space="preserve">
+    <value>ادخل خط الطول: 43.8198056</value>
+  </data>
+  <data name="Register.RestaurantAddress" xml:space="preserve">
+    <value>عنوان المطعم</value>
+  </data>
+  <data name="Register.RestaurantLatitude" xml:space="preserve">
+    <value>خط العرض</value>
+  </data>
+  <data name="Register.RestaurantLongitude" xml:space="preserve">
+    <value>خط الطول</value>
+  </data>
+  <data name="Restaurant.EnterImage" xml:space="preserve">
+    <value>أضف شعار المطعم</value>
+  </data>
+  <data name="Restaurant.Image" xml:space="preserve">
+    <value>شعار المطعم</value>
+  </data>
+  <data name="RestaurantDashboard.info" xml:space="preserve">
+    <value>معلومات المطعم</value>
+  </data>
+  <data name="RestaurantDashboard.Main" xml:space="preserve">
+    <value>الرئسية</value>
+  </data>
+  <data name="RestaurantDashboard.Reviews" xml:space="preserve">
+    <value>المراجعات</value>
+  </data>
+  <data name="RestaurantInfo.AverageRating" xml:space="preserve">
+    <value>متوسط التقييم</value>
+  </data>
+  <data name="RestaurantInfo.CountItems" xml:space="preserve">
+    <value>عدد الاطباق</value>
+  </data>
+  <data name="RestaurantInfo.CountLocations" xml:space="preserve">
+    <value>عدد الفروع</value>
+  </data>
+  <data name="RestaurantInfo.CountReviews" xml:space="preserve">
+    <value>عدد المراجعات</value>
+  </data>
+  <data name="Validation.ArabicOnly" xml:space="preserve">
+    <value>عربي فقط</value>
+  </data>
+  <data name="Validation.Confirm.Password" xml:space="preserve">
+    <value>كلمة المرور غير متطابقة</value>
+  </data>
+  <data name="Validation.Email" xml:space="preserve">
+    <value>البريد الالكتروني غير صحيح (name@example.com)</value>
+  </data>
+  <data name="Validation.EmailExists" xml:space="preserve">
+    <value>البريد الالكتروني موجود بالفعل</value>
+  </data>
+  <data name="Validation.EnglishOnly" xml:space="preserve">
+    <value>انجليزي فقط</value>
+  </data>
+  <data name="Validation.InvalidImageType" xml:space="preserve">
+    <value>نوع الصور غير مدعوم ,يجب ان تكون بهذه الصيغة  ( .jpg, .jpeg, .png, .webp )</value>
+  </data>
+  <data name="Validation.InvalidLogin" xml:space="preserve">
+    <value>البريد الإلكتروني أو كلمة المرور غير صحيحة</value>
+  </data>
+  <data name="Validation.Password.StringLength" xml:space="preserve">
+    <value>كلمة المرور قصيرة</value>
+  </data>
+  <data name="Validation.Range" xml:space="preserve">
+    <value>يجب أن تكون القيمة بين {0} و {1}</value>
+  </data>
+  <data name="Validation.Required" xml:space="preserve">
+    <value>هذا الحقل مطلوب</value>
+  </data>
+  <data name="Validation.Required.Email" xml:space="preserve">
+    <value>يجب ادخل البريد الالكتروني</value>
+  </data>
+  <data name="Validation.Required.Image" xml:space="preserve">
+    <value>يجب إضافة الصورة</value>
+  </data>
+  <data name="Validation.Required.Password" xml:space="preserve">
+    <value>يجب ادخال كلمة المرور</value>
+  </data>
+  <data name="Validation.Required.Rating" xml:space="preserve">
+    <value>يجب تحديد التقييم</value>
+  </data>
+  <data name="Validation.Required.RestaurantCategorise" xml:space="preserve">
+    <value>يجب اختيار تصنيف واحد على الاقل</value>
+  </data>
+  <data name="Validation.StringLength" xml:space="preserve">
+    <value>يجب ألا يتجاوز {0} حرفًا</value>
+  </data>
+</root>

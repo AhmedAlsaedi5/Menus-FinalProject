@@ -1,0 +1,161 @@
+﻿@model menus_project.ViewModel.MenuItemViewModel
+@{
+	bool isRTL = CultureInfo.CurrentCulture.TextInfo.IsRightToLeft;
+	int counter = 0;
+	var ConfirmChangeStatus = SharedLocalizer["MenuItem.ConfirmChangeStatus"];
+	var ConfirmDelete = SharedLocalizer["MenuItem.ConfirmDelete"];
+}
+
+<div class="container">
+	<div class="row mt-3">
+		<div class="col">
+			<div class="card no-hover">
+				
+				<div class="card-body">
+
+					<div class="card-title">
+					<h4 class="alert alert-success border-bottom"> @SharedLocalizer["MenuItem.AddNew"] <i class="bi bi-plus-circle"></i></h4>
+					</div>
+
+					<form method="post" enctype="multipart/form-data" asp-controller="Dashboard" asp-action="Create" >
+						@Html.AntiForgeryToken()	
+						<div class="mb-4">
+							<label class="form-label">@SharedLocalizer["MenuItem.Category"]</label>
+							<select class="form-select"  asp-for="Item.MenuItemCategoryId">
+								<option value="" selected="" disabled="">@SharedLocalizer["MenuItem.ChooseCategory"]</option>
+								@foreach(var category in Model.Categories)
+								{
+									<option value="@category.Id">@(isRTL? category.NameInArabic : category.Name)</option>
+								}
+							</select>
+							<span class="text-danger" asp-validation-for="Item.MenuItemCategoryId"></span>
+						</div>
+
+						<div class="mb-4"> 
+							<label class="form-label">@SharedLocalizer["MenuItem.NameInArabic"]</label>
+							<input type="text" class="form-control" placeholder="@SharedLocalizer["MenuItem.EnterItemName"]" asp-for="Item.NameInArabic" />
+							<span class="text-danger" asp-validation-for="Item.NameInArabic"></span>
+						</div>
+
+						<div class="mb-4"> 
+							<label class="form-label">@SharedLocalizer["MenuItem.NameInEnglish"]</label>
+							<input type="text" class="form-control" placeholder="@SharedLocalizer["MenuItem.EnterItemName"]" asp-for="Item.Name" />
+							<span class="text-danger" asp-validation-for="Item.Name"></span>
+						</div>
+
+						<div class="mb-4"> 
+							<label class="form-label">@SharedLocalizer["MenuItem.DescriptionInArabic"]</label>
+							<input type="text" class="form-control" placeholder="@SharedLocalizer["MenuItem.EnterDescription"]" asp-for="Item.DescriptionInArabic" />
+							<span class="text-danger" asp-validation-for="Item.DescriptionInArabic"></span>
+						</div>
+
+						<div class="mb-4"> 
+							<label class="form-label">@SharedLocalizer["MenuItem.DescriptionInEnglish"]</label>
+							<input type="text" class="form-control" placeholder="@SharedLocalizer["MenuItem.EnterDescription"]" asp-for="Item.Description" />
+							<span class="text-danger" asp-validation-for="Item.Description"></span>
+						</div>
+
+						<div class="mb-4"> 
+							<label class="form-label">@SharedLocalizer["MenuItem.Price"]</label>
+							<input type="text" class="form-control" placeholder="@SharedLocalizer["MenuItem.EnterPrice"]" asp-for="Item.Price" />
+							<span class="text-danger" asp-validation-for="Item.Price"></span>
+						</div>
+
+						<div class="mb-4"> 
+							<label class="form-label">@SharedLocalizer["MenuItem.Image"]</label>
+							<input type="file" class="form-control" placeholder="@SharedLocalizer["MenuItem.EnterImage"]" asp-for="Item.ImageFile" />
+							<span class="text-danger" asp-validation-for="Item.ImageFile"></span>
+						</div>
+
+						<div class="mb-4">
+							<button  type="submit" class= "btn btn-success">@SharedLocalizer["Common.Save"]</button >
+							<a class="btn btn-secondary" asp-action="Create">@SharedLocalizer["Common.Cancel"]</a>
+						</div>		 
+					</form>
+				</div>
+			</div>
+		</div>
+	</div>
+
+	<!--Show Menu Items-->
+
+	<div class="row mt-3">
+		<div class="col">
+			<div class="card no-hover">
+				<div class="card-header">
+					<div><h4>@SharedLocalizer["MenuItem.ShowItems"]</h4></div>
+					<div class="mt-4">
+						<label class="form-label">@SharedLocalizer["MenuItem.Search"]</label>
+
+						 <form method="get" asp-action="Create" > 
+						<div class=" mt-2 d-flex gap-2">
+						<input type="text" class="form-control" name="SearchTerm" value="@ViewBag.CurrentSearch" placeholder="@SharedLocalizer["MenuItem.EnterNameToSearch"]"/>
+						<button  type="submit" class="btn btn-outline-info d-flex" ><i class="bi bi-search pe-1"></i> @SharedLocalizer["Common.Search"] </button>
+						<a class=" btn btn-outline-secondary" asp-action="Create">@SharedLocalizer["Common.Cancel"]</a>
+						</div>
+						</form>
+					</div>
+					<div class="card-body">
+						<h4 class="text-warning">@SharedLocalizer["MenuItem.CountItems"] @Model.Items.Count.ToString()</h4>
+						<div class="table-responsive rounded">
+						<table class="table">
+							<thead >
+								<tr>
+									<th>#</td>
+									<th>@SharedLocalizer["MenuItem.Name"]</th>
+									<th>@SharedLocalizer["MenuItem.Category"]</th>
+									<th>@SharedLocalizer["MenuItem.Description"]</th>
+									<th>@SharedLocalizer["MenuItem.Price"]</th>
+									<th>@SharedLocalizer["MenuItem.Image"]</th>
+									<th>@SharedLocalizer["MenuItem.Status"]</th>
+									<th>@SharedLocalizer["MenuItem.Procedure"]</th>
+							   </tr>
+							</thead>
+							<tbody>
+								@foreach(var item in Model.Items)
+									{
+										counter++;
+										<tr>
+										<td>@counter.ToString()</td>
+										<td>
+											<span class="d-block fw-500">@item.NameInArabic</span>
+											<span class="d-block text-muted" style="font-size:0.8rem">@item.Name</span>
+										</td>
+										<td>@item.MenuItemCategory.Name</td>
+										<td>
+											<span class="d-block fw-500">@item.DescriptionInArabic</span>
+											<span class="d-block text-muted" style="font-size:0.8rem">@item.Description</span>
+										</td>
+										<td class="text-primary">@item.Price ر.س</td>
+										<td><img src="~/Images/@item.Image_url" width="50" class="rounded" /></td>
+										<td>
+										    <span class="status-dot @(item.IsAvailable ? "active" : "inactive")"></span>
+										</td>
+										<td>
+												<div class="d-flex gap-1 align-items-center">
+
+													<smal><a class="btn btn-info" asp-action="Edit" asp-route-id="@item.Id">@SharedLocalizer["Common.Edit"]</a></smal>
+													
+														<form  class="d-flex gap-1 align-items-center" asp-action="ChangeStatus" method="post">
+														<input type="hidden" name="id" value="@item.Id" />
+														@Html.AntiForgeryToken()
+															<smal><button class="btn btn-warning " onclick="return confirm('@ConfirmChangeStatus')"  asp-action="ChangeStatus" asp-route-id="@item.Id" >@SharedLocalizer["Common.ChangeStatus"]</button> </smal>
+															<smal><button class="btn btn-danger" onclick="return confirm('@ConfirmDelete')"  asp-action="Delete" asp-route-id="@item.Id" >@SharedLocalizer["Common.Delete"]</button> </smal>
+													</form>
+													
+													
+											</div>
+										</td>   
+										</tr>
+									}
+								
+								</tbody>
+						</table>
+						</div>
+					</div>
+
+				</div>
+			</div>
+		</div>
+	</div>
+</div>

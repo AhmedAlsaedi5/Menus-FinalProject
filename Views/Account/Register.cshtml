@@ -1,0 +1,27 @@
+﻿<div class="container d-flex justify-content-center vh-100">
+    <div class="row w-100 justify-content-center">
+        <div class="col-md-6 col-lg-5">
+            <div class="card no-hover shadow">
+                <div class="card-body text-center p-5 mb-4">
+
+                    <h3 class="text-primary mb-4">
+                        @SharedLocalizer["common.Register"]
+                    </h3>
+
+                    <div class="d-grid gap-3 mt-4">
+                        <a asp-action="RegisterUser" class="btn btn-primary">
+                            @SharedLocalizer["common.RegisterAsUser"]
+                            <i class="bi bi-person-fill ms-2"></i>
+                        </a>
+
+                        <a asp-action="RegisterRestaurant" class="btn btn-dark">
+                            @SharedLocalizer["common.RegisterAsRestaurant"]
+                            <i class="fa-solid fa-utensils ms-2"></i>
+                        </a>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
